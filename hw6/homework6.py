@@ -1,3 +1,5 @@
+# 4 вариант, итальянский язык
+
 import random
 
 def syll(a, b):
