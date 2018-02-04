@@ -1,13 +1,18 @@
 # считаем, что формы, образованные от глаголов на -y и -e, заканчиваются на -ied
 import re
+import os
 
 def readtext(filename):
     # эта функция считывает файл
-    filename += '.txt'
     wfile = open(filename, 'r', encoding='utf-8')
     text = wfile.read()
     wfile.close()
     return text
+
+
+def check_file(filename):
+    # эта функция проверяет существование файла с заданным именем
+    return os.path.exists(filename)
 
 
 def del_empty(words):
@@ -58,7 +63,10 @@ def count(words):
 
 def main():
     # эта функция главная
-    words = punct(readtext(input('Введите имя файла с текстом: ')))
+    filename = input('Введите имя файла с текстом: ')
+    while not check_file(filename):
+        filename = input('Нет файла с таким названием. Введите заново: ')
+    words = punct(readtext(filename))
     c_ed, c_ied = count(words)
     print('В тексте', c_ed, 'форм на -ed, из них', c_ied, 'образованы от глаголов на -y  или -e.')
     
