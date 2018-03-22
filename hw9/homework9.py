@@ -2,7 +2,7 @@ import re
 import os
 
 
-def readtext(filename):
+def read_text(filename):
     # эта функция считывает файл
     wfile = open(filename, 'r', encoding='utf-8')
     text = wfile.read()
@@ -47,7 +47,7 @@ def main():
     filename = input('Введите имя файла с текстом: ')
     while not check_file(filename):
         filename = input('Нет файла с таким названием. Введите заново: ')
-    text = readtext(filename).lower()
+    text = read_text(filename).lower()
     dictionary = search(text)
     if len(dictionary) == 0:
         print('В этом тексте нет форм глагола "выпить"')
