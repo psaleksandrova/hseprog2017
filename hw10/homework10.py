@@ -23,6 +23,11 @@ def search(text):
     return False
 
 
+def write_ans(res):
+    with open("ans.txt", "w", encoding="utf-8") as f:
+        f.write(res)
+
+
 def main():
     # эта функция главная
     filename = input('Введите имя файла со статьёй: ')
@@ -30,10 +35,9 @@ def main():
         filename = input('Нет файла с таким названием. Введите заново: ')
     text = read_text(filename)
     res = search(text)
-    if res:
-        print(res)
-    else:
-        print('Статья не соответсвует нужному формату.')
+    if not res:
+        res = 'Статья не соответсвует нужному формату.'
+    write_ans(res)
 
 if __name__ == '__main__':
    main()
