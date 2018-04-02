@@ -24,6 +24,7 @@ def search(text):
 
 
 def write_ans(res):
+    # эта функция создаёт файл, в который записывает ответ
     with open("ans.txt", "w", encoding="utf-8") as f:
         f.write(res)
 
