@@ -53,9 +53,8 @@ def ans2():
 
 
 def main():
-    # эта функция главная
-    ans1()
-    #print(ans2())
+    #ans1()
+    print(ans2())
 
 if __name__ == '__main__':
    main()
